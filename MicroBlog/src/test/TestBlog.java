@@ -41,6 +41,10 @@ public class TestBlog  {
 			}
 			else if (prompt.startsWith("delete")){
 				//myblog.delete(index);
+				String line = testBlog.getInput().substring(7);
+				int index = Integer.parseInt(line);
+				index=index-1;
+				myblog.delete(index);
 			}
 			
 		}
