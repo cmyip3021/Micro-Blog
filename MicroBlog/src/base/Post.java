@@ -9,7 +9,7 @@ public class Post {
 	public Post(Date date, String content){
 		this.date = date;
 		this.content = content;
-		System.out.println(date);
+		
 	}
 	
 	public String getContent(){
@@ -21,7 +21,8 @@ public class Post {
 	}
 	
 	public String toString(){
-		return getContent();
+		
+		return this.date+"\n"+getContent();
 	}
 	
 	public boolean equals(Object o){
