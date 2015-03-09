@@ -25,7 +25,7 @@ public class Blog {
 	}
 	
 	public void post(Post p){
-		this.allPosts.add(p); //OK?
+		this.allPosts.add(p); 
 		
 //		int size = this.allPosts.size();	
 //		int new_size = this.allPosts.size();
@@ -35,13 +35,17 @@ public class Blog {
 	}
 	
 	public void list(){
-		if(!this.allPosts.isEmpty()){
+		if(!this.allPosts.isEmpty()){ //what if size=0
 			int size=this.allPosts.size();
 			//int i;
 			System.out.println("Current posts:");
 			for(int i=0;i<size;i++){ //OK??
 				System.out.print("Post["+(i+1)+"]:" );
 				System.out.println(this.allPosts.get(i));
+				//Post[1]:Mon Mar 09 17:02:07 CST 2015
+				//123 since allPosts is arraylist<Post>
+				//which have attributes:date and content
+			
 			}
 		}
 	}
@@ -52,16 +56,18 @@ public class Blog {
 			this.allPosts.remove(index);
 		}
 		else{
-			System.out.println("The input index is illegal.");
+			System.out.println("Illegal deletion.");
 		}
 	}
 	
-	public String toString(){ //??????????what is the output
+	public String toString(){  // why can use toString()?
 		return this.allPosts.toString();
 	}
 	//p.11 what does the slide mean?
 	public boolean equals(Object o){
-		if (this == o) return true;
+		if (this == o) return true;		// check memory address(object)
+										// check values (primitive type)
+										//				e.g. int, double
 		if(o == null) return false;
 		if(getClass() != o.getClass()) return false;
 		Blog blog = (Blog) o;

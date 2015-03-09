@@ -1,7 +1,7 @@
 package base;
 import java.util.Date;
 
-public class Post {
+public class Post implements Comparable<Post>{
 
 	private Date date;
 	private String content;
@@ -19,9 +19,11 @@ public class Post {
 	public void setContent(String content){
 		this.content = content;
 	}
-	
-	public String toString(){
-		
+								//return what u want only ,not print
+	public String toString(){   // System.out.println(post);
+								//result in:
+								//Mon Mar 09 17:02:07 CST 2015
+								//123
 		return this.date+"\n"+getContent();
 	}
 	
@@ -46,5 +48,18 @@ public class Post {
 			return true;
 		else
 			return false;
+	}
+
+	@Override
+	public int compareTo(Post p) {  //????before after
+		//sort:compareTo() + implements Comparable<type>
+					
+		// TODO Auto-generated method stub
+		if(this.date.after(p.date))
+			return 1;
+		else if (this.date.before(p.date))
+			return -1;
+		else
+			return 0;
 	}
 }

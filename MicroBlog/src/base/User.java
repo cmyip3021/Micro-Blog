@@ -1,5 +1,5 @@
 package base;
-public class User {
+public class User implements Comparable<User>{
 	private int ID;
 	private String name;
 	private String email;
@@ -32,7 +32,14 @@ public class User {
 		this.email=email;
 	}
 	
-	
+	public int compareTo(User u){
+		if(this.ID>u.ID)
+			return 1;
+		else if(this.ID<u.ID)
+			return -1;
+		else //if(this.ID ==u.ID)
+			return 0;
+	}
 	
 	
 }

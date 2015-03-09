@@ -40,13 +40,13 @@ public class TestBlog  {
 				System.out.println("A new Post:");
 				System.out.println(post);
 			
-			}
+			}//String.startsWith()
 			else if (prompt.startsWith("delete")){
 				//myblog.delete(index);
 				String line = prompt.substring(7);
 				int index = Integer.parseInt(line);
 				//System.out.println(line);
-				index=index-1;
+				index=index-1; //since arraylist start from 0
 				myblog.delete(index);
 			}
 			
