@@ -1,7 +1,5 @@
 package test;
 
-
-
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -77,5 +75,4 @@ public class testSortSearch {
 	}
 
 }
-
 

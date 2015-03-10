@@ -1,7 +1,8 @@
-package base;
+package blog;
 import base.*;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 
 public class Blog {
@@ -81,30 +82,24 @@ public class Blog {
 		return hashCode;
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public void search(int month, String someone){
+		
+		Calendar cal = Calendar.getInstance();
+		for (Post p: allPosts){
+			
+			cal.setTime(p.getDate());
+			int postMonth = cal.get(Calendar.MONTH);
+			postMonth=postMonth+1;
+			if(month==postMonth){
+				if(p.contains(someone)){
+					System.out.println(p);
+				}
+			}
+				
+			
+		}
+		
+	}
 	
 	
 	
@@ -115,5 +110,10 @@ public class Blog {
 	private Object i(int size, int i) {///?????????????????????
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public void setPosts(ArrayList<Post> allposts2) {
+		// TODO Auto-generated method stub
+		this.allPosts=allposts2;
 	}
 }

@@ -53,7 +53,7 @@ public class Post implements Comparable<Post>{
 	@Override
 	public int compareTo(Post p) {  //????before after
 		//sort:compareTo() + implements Comparable<type>
-					
+			// return this.date.compareTo(p.date)	;	
 		// TODO Auto-generated method stub
 		if(this.date.after(p.date))
 			return 1;
@@ -61,5 +61,10 @@ public class Post implements Comparable<Post>{
 			return -1;
 		else
 			return 0;
+	}
+
+	public Date getDate() {
+		// TODO Auto-generated method stub
+		return this.date;
 	}
 }

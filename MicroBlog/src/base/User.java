@@ -8,9 +8,12 @@ public class User implements Comparable<User>{
 		this.ID=id;
 		this.name=name;
 		this.email=email;
-		System.out.println("User [userId="+this.ID+", userName="+this.name+", userEmail="+this.email+"]");
+		
 	}
 	
+	public String toString(){
+		return "User [userId="+this.ID+", userName="+this.name+", userEmail="+this.email+"]";
+	}
 	public int getID(){
 		return this.ID;
 	}
