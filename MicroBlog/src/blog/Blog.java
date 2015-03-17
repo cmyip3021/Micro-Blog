@@ -1,11 +1,12 @@
 package blog;
 import base.*;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Calendar;
 
 
-public class Blog {
+public class Blog implements Serializable {
 	
 	private User user;
 	private ArrayList<Post> allPosts;
@@ -102,11 +103,6 @@ public class Blog {
 	}
 	
 	
-	
-	
-	
-	
-	
 	private Object i(int size, int i) {///?????????????????????
 		// TODO Auto-generated method stub
 		return null;
@@ -116,4 +112,44 @@ public class Blog {
 		// TODO Auto-generated method stub
 		this.allPosts=allposts2;
 	}
+	
+	
+	
+	//lab5
+	public void save(String filepath){
+		FileOutputStream fo = new FileOutputStream(filepath);
+		ObjectOutputStream oo = new ObjectOutputStream(fo);
+		// wrong Blog new_blog = new Blog(); 
+	}
+	
+	public void load(String filepath){
+		try{
+		FileInputStream fi = new FileInputStream(filepath);
+		ObjectInputStream oi = new ObjectInputStream(fi);
+	// 
+		Blog new_blog= (Blog)  ;
+		
+		
+		
+		}catch(FileNotFoundException e)
+		{System.out.println("Wait! There is something wrong. I cannot find the file..");
+		
+		}
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

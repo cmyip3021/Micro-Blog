@@ -1,5 +1,6 @@
 package base;
-public class User implements Comparable<User>{
+import java.io.*;
+public class User implements Comparable<User>,Serializable{
 	private int ID;
 	private String name;
 	private String email;
