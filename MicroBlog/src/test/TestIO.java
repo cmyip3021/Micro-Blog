@@ -1,5 +1,6 @@
 package test;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -12,7 +13,7 @@ import blog.Blog;
 
 public class TestIO {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClassNotFoundException, IOException {
 
           System.out.println("****Creating a blog...******");
 		User user = new User(1, "A", "a@cse.ust.hk");
@@ -37,10 +38,10 @@ public class TestIO {
 		blog.setPosts(allposts);
           blog.list();
 		
-		
+		//C:\Users\cmyipaa\Desktop
 		// *****************Task 1: save a blog to a file*************
 		System.out.println("\n***Saving the blog to an external file***");
-		String savefilepath="C:/"+user.getName()+".blog";
+		String savefilepath="C:/Users/cmyipaa/Desktop/"+user.getName()+".blog";
 		//if the path is not accessible, change it to any path you can access
 		System.out.println("File path: "+savefilepath);
 		blog.save(savefilepath);
@@ -57,7 +58,7 @@ public class TestIO {
 		// ******************Task 2: load a blog from a file***********
 		// Comment the code below if you can't finish this task
 		System.out.println("\n***Loading a blog from an external file...***");
-		String loadfilepath="D:/"+user.getName()+".blog";
+		String loadfilepath="C:/Users/cmyipaa/Desktop/"+user.getName()+".blog";
 		    //if the path is not accessible, change it to any path you can access
 		System.out.println("File path: "+loadfilepath);
 		Blog newblog = new Blog(user);

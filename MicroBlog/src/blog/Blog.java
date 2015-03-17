@@ -117,23 +117,31 @@ public class Blog implements Serializable {
 	
 	//lab5
 	public void save(String filepath){
-		FileOutputStream fo = new FileOutputStream(filepath);
-		ObjectOutputStream oo = new ObjectOutputStream(fo);
-		// wrong Blog new_blog = new Blog(); 
+		try{
+			FileOutputStream fo = new FileOutputStream(filepath);
+			ObjectOutputStream oo = new ObjectOutputStream(fo);
+			// wrong Blog new_blog = new Blog(); 
+			oo.writeObject(this);
+			oo.close();
+			
+		}catch(Exception e)
+		{
+			System.out.println("Wait! There is something wrong. I cannot find the file..");
+		}	
+			
 	}
 	
-	public void load(String filepath){
+	public void load(String filepath) throws IOException, ClassNotFoundException{
 		try{
 		FileInputStream fi = new FileInputStream(filepath);
-		ObjectInputStream oi = new ObjectInputStream(fi);
-	// 
-		Blog new_blog= (Blog)  ;
-		
-		
-		
+		ObjectInputStream oi = new ObjectInputStream(fi); 
+		Blog new_blog= (Blog) oi.readObject() ;
+		this.user = new_blog.user;
+		this.allPosts=new_blog.allPosts;
+		oi.close();
 		}catch(FileNotFoundException e)
-		{System.out.println("Wait! There is something wrong. I cannot find the file..");
-		
+		{
+			System.out.println("Wait! There is something wrong. I cannot find the file..");
 		}
 		
 		
