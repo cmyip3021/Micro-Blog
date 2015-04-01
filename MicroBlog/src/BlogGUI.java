@@ -20,13 +20,14 @@ public class BlogGUI implements ActionListener {
 	}
 	
 	public void setWindow(){
-		JFrame mainFrame = new JFrame("Micro Blog Demo.");
+		 mainFrame = new JFrame("Micro Blog Demo.");
 		mainFrame.setLayout(new GridLayout(2,1));
 		mainFrame.setSize(500, 500);
 		
-		JButton refresh = new JButton("refresh");//create sth
-		JButton post = new JButton("post");
+		refresh = new JButton("refresh");//create sth
+		post = new JButton("post");
 		post.addActionListener(this);
+		refresh.addActionListener(this);
 					//new ActionListener() {
 //            public void actionPerformed(ActionEvent e)
 //            {postContent.setText("You click POST!");
@@ -38,12 +39,12 @@ public class BlogGUI implements ActionListener {
 //           }
 //        });  
 				
-		JTextArea postTextArea = new JTextArea("What is on your mind?",10,30);
-		JTextField postContent = new JTextField("Here is puts my posts.",30);
+		 postTextArea = new JTextArea("What is on your mind?",10,30);
+		 postContent = new JTextField("Here is puts my posts.",30);
 		postContent.setHorizontalAlignment(JTextField.CENTER);
 		JLabel infoOfArea = new JLabel("something here");
 		
-		JPanel postPanel = new JPanel();// add sth
+		 postPanel = new JPanel();// add sth
 //		postTextArea.setBackground(Color.yellow);
 		postPanel.setLayout(new BorderLayout());
 		postPanel.add(infoOfArea,BorderLayout.NORTH);
@@ -53,7 +54,7 @@ public class BlogGUI implements ActionListener {
 //		postPanel.add(refresh,BorderLayout.LINE_START);
 //		postPanel.add(post,BorderLayout.LINE_END);
 			JPanel buttonPanel = new JPanel();
-//			buttonPanel.setLayout(new BorderLayout());
+			buttonPanel.setLayout(new GridLayout(1,2));
 			buttonPanel.add(refresh);
 			buttonPanel.add(post);
 		postPanel.add(buttonPanel,BorderLayout.SOUTH);
@@ -73,8 +74,8 @@ public class BlogGUI implements ActionListener {
 			postContent.setText("You click POST!");
 			
 		}
-//		else if(e.getSource()==refresh)
-//			postContent.setText("You click REFRESH!");
+		else if(e.getSource()==refresh)
+			postContent.setText("You click REFRESH!");
 	}
 
 	
