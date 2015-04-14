@@ -18,13 +18,13 @@ public class BlogGUI implements ActionListener {
 	private JButton refresh,post; //**
 	//private JButton post;
 	private JTextArea postTextArea;
-	private JTextField postContent;
+	private JTextArea postContent;
 	private JFrame mainFrame;
 	private JLabel infoOfArea;
 	private JPanel postPanel;
-	
-	private Blog myBlog;
 	private User user= new User(01,"name","email@ust.hk");
+	private Blog myBlog = new Blog(user);
+	
 	
 	public BlogGUI(){
 		
@@ -51,8 +51,8 @@ public class BlogGUI implements ActionListener {
 		
 		 postTextArea = new JTextArea("What is on your mind?",10,30);
 		 postTextArea.addKeyListener(new lengthListerner());
-		 postContent = new JTextField("Here is puts my posts.",30);
-		postContent.setHorizontalAlignment(JTextField.CENTER);
+		 postContent = new JTextArea("Here is puts my posts.",10,30);
+		//postContent.setHorizontalAlignment(JTextField.CENTER);
 		 //infoOfArea = new JLabel("You can still input 140 Characters");
 		String content = postTextArea.getText();
 		 infoOfArea = new JLabel("You can still input "+(140-content.length())+" Characters");
@@ -105,11 +105,12 @@ public class BlogGUI implements ActionListener {
 		}
 		Date d =new Date();
 		Post newpost = new Post(d, content);
-		myBlog = new Blog(user);
-		myBlog.post(newpost);
-		String savefilepath="C:/Users/cmyipaa.CSD.000/Desktop/blogfile.blog"; //**
-		myBlog.save(savefilepath);
 		
+		myBlog.post(newpost);
+		String savefilepath="C:/Users/cmyipaa.CSD/Desktop/blogfile.blog"; //**
+		myBlog.save(savefilepath);
+		postContent.setText(content);
+		postTextArea.setText("");
 		}
 		
 	}
@@ -119,13 +120,15 @@ public class BlogGUI implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			String loadfilepath="C:/Users/cmyipaa/Desktop/blogfile.blog"; //**
+			String loadfilepath="C:/Users/cmyipaa.CSD/Desktop/blogfile.blog"; //**
 			try {
 				myBlog.load(loadfilepath);
 			} catch (ClassNotFoundException | IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace(); ////**************************************
 			}
+			postContent.setText(myBlog.printBlog());
+			postTextArea.setText("");
 			
 		}
 		

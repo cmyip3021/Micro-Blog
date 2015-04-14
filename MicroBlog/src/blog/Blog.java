@@ -148,7 +148,13 @@ public class Blog implements Serializable {
 	}
 	
 	
-	
+	public String printBlog(){
+		String out="";
+		for (Post i: allPosts){
+			out=out+i.toString()+'\n';
+		}
+		return out;		
+	}
 	
 	
 	
