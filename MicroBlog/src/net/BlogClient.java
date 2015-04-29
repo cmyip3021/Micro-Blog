@@ -17,17 +17,17 @@ public class BlogClient {
 			Socket socket = new Socket(IP,PORT);
 			PrintWriter out=
 					new PrintWriter(socket.getOutputStream(),true);
-			BufferedReader in =
-					new BufferedReader(new InputStreamReader(socket.getInputStream()));
-			out.println("post?");//send to server
+//			BufferedReader in =
+//					new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			out.println("?");//send to server
 
-			String userInput;
-			while((userInput=in.readLine())!=null){
-
-				System.out.println( userInput);
-			}
+//			String userInput;
+//			while((userInput=in.readLine())!=null){
+//
+//				System.out.println( userInput);
+//			}
 			socket.close();
-			in.close();
+//			in.close();
 			out.close();
 		}catch(UnknownHostException e){
 			System.err.println("don't know about host"+IP);
